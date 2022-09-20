@@ -30,7 +30,7 @@ class penyewaan(models.Model):
     hargasewa = models.IntegerField()
 
     def __str__(self):
-        return str(self.idpenyewaan)
+        return str(self.idpenyewaan) + ' - ' + str(self.idpelanggan)
 class charge(models.Model):
     idcharge = models.AutoField(primary_key=True)
     jenischarge = models.CharField(max_length=50)
