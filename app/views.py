@@ -11,7 +11,7 @@ def index(reqeust):
     # Filter
     filterpelangganobj = models.pelanggan.objects.filter(jeniskelamin = 'Perempuan')
 
-    return render(reqeust,'pelanggan.html',{
+    return render(reqeust,'pelangganview.html',{
         "allpelangganobj" : allpelangganobj,
         'getpelangganobj' : getpelangganobj,
         'filterpelangganobj' : filterpelangganobj
