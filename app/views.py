@@ -3,7 +3,6 @@ from . import models
 
 # Create your views here.
 
-# 1 : bikin fungsi retrieve objects dari database
 def index(reqeust):
     # Ambil data dari pelanggan
     # All
@@ -18,12 +17,10 @@ def index(reqeust):
         'getpelangganobj' : getpelangganobj,
         'filterpelangganobj' : filterpelangganobj
     })
-# 2 : Bikin file pelanggan.html di folder templates
-# 3 : Bikin fungsi Create data
+
 def createdata(request):
     if request.method == "GET":
         return render(request,'createdata.html')
-# 4 : Bikin file createdata.html
     else:
         print(request.POST)
         nama = request.POST['nama']
@@ -36,9 +33,8 @@ def createdata(request):
             jeniskelamin = jeniskelamin,
             nohp = nohp
         ).save()
-# 5 : Jangan lupa tambahin redirect setelah render di line 1
         return redirect('index')
-# 6 : Bikin fungsi update data
+        
 def updatedata(request,id):
     pelangganobj = models.pelanggan.objects.get(idpelanggan=id)
     if request.method == 'GET':
@@ -57,7 +53,7 @@ def updatedata(request,id):
         pelangganobj.save()
 
         return redirect('index')
-# 7 : Bikin fungsi delete data
+
 def deletedata(request,id):
     pelangganobj = models.pelanggan.objects.get(idpelanggan = id)
     pelangganobj.delete()
