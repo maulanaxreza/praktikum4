@@ -12,7 +12,7 @@ def index(reqeust):
     # Filter
     filterpelangganobj = models.pelanggan.objects.filter(jeniskelamin = 'Perempuan')
 
-    return render(reqeust,'pelanggan.html',{
+    return render(reqeust,'table.html',{
         "allpelangganobj" : allpelangganobj,
         'getpelangganobj' : getpelangganobj,
         'filterpelangganobj' : filterpelangganobj
@@ -20,7 +20,7 @@ def index(reqeust):
 
 def createdata(request):
     if request.method == "GET":
-        return render(request,'createdata.html')
+        return render(request,'form.html')
     else:
         print(request.POST)
         nama = request.POST['nama']
